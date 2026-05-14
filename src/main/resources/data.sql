@@ -1,69 +1,80 @@
--- =========================================
--- SEED - TABELA GAMES
--- =========================================
+-- Insert Genres
+INSERT INTO genre (name) VALUES ('Action');
+INSERT INTO genre (name) VALUES ('Adventure');
+INSERT INTO genre (name) VALUES ('RPG');
+INSERT INTO genre (name) VALUES ('Strategy');
+INSERT INTO genre (name) VALUES ('Sports');
+INSERT INTO genre (name) VALUES ('Racing');
+INSERT INTO genre (name) VALUES ('Puzzle');
+INSERT INTO genre (name) VALUES ('Shooter');
+INSERT INTO genre (name) VALUES ('Fighting');
+INSERT INTO genre (name) VALUES ('Platformer');
 
-INSERT INTO games (name, launch, price) VALUES
-                                            ('The Witcher 3: Wild Hunt', '2015-05-19', 149.90),
-                                            ('Cyberpunk 2077', '2020-12-10', 199.90),
-                                            ('Red Dead Redemption 2', '2018-10-26', 249.90),
-                                            ('Grand Theft Auto V', '2013-09-17', 129.90),
-                                            ('Minecraft', '2011-11-18', 99.90),
-                                            ('Elden Ring', '2022-02-25', 229.90),
-                                            ('Dark Souls III', '2016-03-24', 159.90),
-                                            ('Sekiro: Shadows Die Twice', '2019-03-22', 179.90),
-                                            ('God of War', '2018-04-20', 199.90),
-                                            ('God of War Ragnarök', '2022-11-09', 299.90),
-                                            ('Horizon Zero Dawn', '2017-02-28', 149.90),
-                                            ('Horizon Forbidden West', '2022-02-18', 299.90),
-                                            ('The Last of Us Part II', '2020-06-19', 249.90),
-                                            ('Ghost of Tsushima', '2020-07-17', 249.90),
-                                            ('Spider-Man Remastered', '2022-08-12', 249.90),
-                                            ('Resident Evil 4', '2005-01-11', 79.90),
-                                            ('Resident Evil 4 Remake', '2023-03-24', 249.90),
-                                            ('Resident Evil Village', '2021-05-07', 199.90),
-                                            ('Baldur''s Gate 3', '2023-08-03', 199.90),
-                                            ('Divinity: Original Sin 2', '2017-09-14', 119.90),
-                                            ('League of Legends', '2009-10-27', 0.00),
-                                            ('Valorant', '2020-06-02', 0.00),
-                                            ('Counter-Strike 2', '2023-09-27', 0.00),
-                                            ('Dota 2', '2013-07-09', 0.00),
-                                            ('Fortnite', '2017-07-21', 0.00),
-                                            ('Overwatch 2', '2022-10-04', 0.00),
-                                            ('FIFA 23', '2022-09-30', 299.90),
-                                            ('EA Sports FC 25', '2025-09-27', 349.90),
-                                            ('Forza Horizon 5', '2021-11-09', 249.90),
-                                            ('Need for Speed Heat', '2019-11-08', 179.90),
-                                            ('Call of Duty: Modern Warfare III', '2023-11-10', 349.90),
-                                            ('Battlefield 1', '2016-10-21', 149.90),
-                                            ('Battlefield V', '2018-11-20', 149.90),
-                                            ('Terraria', '2011-05-16', 32.99),
-                                            ('Stardew Valley', '2016-02-26', 24.99),
-                                            ('Hades', '2020-09-17', 73.99),
-                                            ('Celeste', '2018-01-25', 36.99),
-                                            ('Cuphead', '2017-09-29', 54.99),
-                                            ('Portal 2', '2011-04-19', 32.99),
-                                            ('Half-Life 2', '2004-11-16', 29.99),
-                                            ('The Legend of Zelda: Breath of the Wild', '2017-03-03', 299.90),
-                                            ('The Legend of Zelda: Tears of the Kingdom', '2023-05-12', 357.99),
-                                            ('Super Mario Odyssey', '2017-10-27', 249.90),
-                                            ('Animal Crossing: New Horizons', '2020-03-20', 299.90),
-                                            ('Metroid Dread', '2021-10-08', 299.90),
-                                            ('Pokémon Scarlet', '2022-11-18', 299.90),
-                                            ('Pokémon Violet', '2022-11-18', 299.90),
-                                            ('Final Fantasy VII Remake', '2020-04-10', 249.90),
-                                            ('Persona 5 Royal', '2019-10-31', 249.90),
-                                            ('Monster Hunter: World', '2018-01-26', 129.90);
--- -----------------------------------------
--- GAME <-> DEVELOPERS (ManyToMany)
--- -----------------------------------------
--- Implementar amanhã
+-- Insert Platforms
+INSERT INTO platform (name) VALUES ('PlayStation 5');
+INSERT INTO platform (name) VALUES ('Xbox Series X');
+INSERT INTO platform (name) VALUES ('Nintendo Switch');
+INSERT INTO platform (name) VALUES ('PC');
+INSERT INTO platform (name) VALUES ('PlayStation 4');
+INSERT INTO platform (name) VALUES ('Xbox One');
 
--- -----------------------------------------
--- GAME <-> PUBLISHERS (ManyToMany)
--- -----------------------------------------
--- Implementar amanhã
+-- Insert Games
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('The Legend of Zelda: Tears of the Kingdom', 'An epic adventure through the skies and lands of Hyrule with new abilities and mysteries to uncover.', '2023-05-12', 9.5, 2, 3, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9wvl.jpg', true);
 
--- -----------------------------------------
--- GAME -> FRANCHISE (ManyToOne)
--- -----------------------------------------
--- Implementar amanhã
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Elden Ring', 'A dark fantasy action RPG set in a vast world created by Hidetaka Miyazaki and George R.R. Martin.', '2022-02-25', 9.3, 3, 1, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc96im.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('God of War Ragnarök', 'Kratos and Atreus embark on an epic journey through the Nine Realms to prevent Ragnarök.', '2022-11-09', 9.4, 1, 5, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9mzr.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Baldurs Gate 3', 'A story-rich RPG where your choices shape a tale of fellowship and betrayal, survival and sacrifice.', '2023-08-03', 9.6, 3, 4, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co5vb3.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9wsd.jpg', true);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Call of Duty: Modern Warfare III', 'The latest installment in the iconic first-person shooter franchise with intense multiplayer action.', '2023-11-10', 7.8, 8, 2, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6yza.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9zvl.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('FIFA 24', 'Experience the worlds game with over 19,000 players across 700+ teams in the most authentic football game.', '2023-09-29', 7.5, 5, 1, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6wlo.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9xmk.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Super Mario Bros. Wonder', 'A new 2D Mario adventure with brand-new power-ups and creative level designs.', '2023-10-20', 9.1, 10, 3, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6tmu.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9whs.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Starfield', 'Bethesdas first new universe in 25 years - explore space and discover the mysteries of the universe.', '2023-09-06', 8.2, 3, 2, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co5w5k.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9vwm.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Street Fighter 6', 'The next evolution of the iconic fighting game series with new gameplay mechanics and fighters.', '2023-06-02', 8.9, 9, 4, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkg.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9tbk.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Hogwarts Legacy', 'Experience life as a student at Hogwarts School of Witchcraft and Wizardry in the 1800s.', '2023-02-10', 8.5, 3, 1, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkx.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9rkg.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Forza Motorsport', 'The most technically advanced racing game featuring realistic physics and stunning graphics.', '2023-10-10', 8.4, 6, 2, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6plj.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9wkp.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Resident Evil 4 Remake', 'A reimagining of the 2005 classic with modernized gameplay and stunning visuals.', '2023-03-24', 9.2, 1, 5, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkh.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9sfm.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Civilization VI', 'Build an empire that will stand the test of time in this turn-based strategy masterpiece.', '2016-10-21', 9.0, 4, 4, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2mly.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc4wen.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Portal 2', 'A mind-bending puzzle game that challenges players with innovative gameplay mechanics.', '2011-04-19', 9.7, 7, 4, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1rs4.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc3vkr.jpg', true);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Assassins Creed Mirage', 'Return to the roots of the franchise with a focus on stealth and parkour in ancient Baghdad.', '2023-10-05', 8.0, 1, 1, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6k8v.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9wjn.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Spider-Man 2', 'Swing through New York City as both Peter Parker and Miles Morales in this superhero adventure.', '2023-10-20', 9.3, 1, 1, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6rwx.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9wlp.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Diablo IV', 'The ultimate action RPG returns with an open world filled with demons and darkness.', '2023-06-06', 8.6, 3, 4, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkl.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc9tbm.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Cyberpunk 2077', 'An open-world RPG set in Night City where you play as a mercenary outlaw going after a one-of-a-kind implant.', '2020-12-10', 8.3, 3, 1, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2mzx.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc8qzv.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('The Last of Us Part II', 'An emotionally gripping action-adventure game about survival, revenge, and redemption.', '2020-06-19', 9.4, 1, 5, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc7kwd.jpg', false);
+
+INSERT INTO game (title, description, release_date, rating, genre_id, platform_id, cover_url, backdrop_url, in_wishlist)
+VALUES ('Age of Empires IV', 'Return to history in this classic real-time strategy game with new civilizations and campaigns.', '2021-10-28', 8.3, 4, 4, 'https://images.igdb.com/igdb/image/upload/t_cover_big/co3r8i.jpg', 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc8mjp.jpg', false);
