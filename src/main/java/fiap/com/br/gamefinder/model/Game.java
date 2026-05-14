@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.core.Relation;
 
 import java.time.LocalDate;
 
@@ -14,9 +16,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Data
 @Table(name = "games")
+@Relation(collectionRelation = "gameList")
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,16 +34,17 @@ public class Game {
 
     private Double rating;
 
-    @OneToMany
+    @ManyToOne
     private Genre genre;
 
-    @OneToMany
+    @ManyToOne
     private Platform platform;
 
     private String coverUrl;
 
     private String backdropUrl;
 
+    @Column(name = "in_wishlist")
     private Boolean inWishList;
 
     public EntityModel<Game> toEntityModel() {
