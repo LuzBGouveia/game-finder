@@ -24,24 +24,25 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String title;
 
-    private LocalDate launch;
+    private String description;
 
-    private BigDecimal price;
+    private LocalDate releaseDate;
 
-    @OneToMany(mappedBy = "Game")
-    private Set<Genre> genres;
+    private Double rating;
 
-    @ManyToMany
-    private Set<Developer> developers;
+    @OneToMany
+    private Genre genre;
 
-    @ManyToMany
-    private Set<Publisher> publishers;
+    @OneToMany
+    private Platform platform;
 
-    @ManyToOne
-    private Franchise franchise;
+    private String coverUrl;
 
+    private String backdropUrl;
+
+    private Boolean inWishList;
     public EntityModel<Game> toEntityModel() {
         var linkAllProfessional = linkTo(methodOn(GameController.class).findAll()).withRel("all-games").withTitle("All games");
         var linkSelf = linkTo(methodOn(GameController.class).findById(id)).withSelfRel().withTitle("Professional details");

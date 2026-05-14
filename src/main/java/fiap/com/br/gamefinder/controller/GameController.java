@@ -26,14 +26,25 @@ public class GameController {
                 .toList();
     }
 
+    @GetMapping("genre/{genreId}")
+    public List<EntityModel<Game>> findAllByGenreId(@PathVariable Long id) {
+        return gameService.findAllByGenreId(id)
+                .stream()
+                .map(Game::toEntityModel)
+                .toList();
+    }
+
+    @GetMapping("platforms/{platformId}")
+    public List<EntityModel<Game>> findAllByPlatformId(@PathVariable Long id) {
+        return gameService.findAllByPlatformId(id)
+                .stream()
+                .map(Game::toEntityModel)
+                .toList();
+    }
+
     @GetMapping("{id}")
     public EntityModel<Game> findById(@PathVariable Long id) {
         return gameService.findById(id).toEntityModel();
-    }
-
-    @GetMapping("name/{name}")
-    public EntityModel<Game> findByName(@PathVariable String name) {
-        return gameService.findByName(name).toEntityModel();
     }
 
     @PostMapping

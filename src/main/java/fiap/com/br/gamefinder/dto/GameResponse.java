@@ -8,24 +8,28 @@ import java.util.Set;
 
 public record GameResponse(
         Long id,
-        String name,
-        LocalDate launch,
-        BigDecimal price,
-        Set<Genre> genres,
-        Set<Developer> developers,
-        Set<Publisher> publishers,
-        Franchise franchise
+        String title,
+        String description,
+        LocalDate releaseDate,
+        Double rating,
+        Genre genre,
+        Platform platform,
+        String coverUrl,
+        String backdropUrl,
+        Boolean inWishlist
 ) {
     public static GameResponse fromEntity(Game game) {
         return new GameResponse(
                 game.getId(),
-                game.getName(),
-                game.getLaunch(),
-                game.getPrice(),
-                game.getGenres(),
-                game.getDevelopers(),
-                game.getPublishers(),
-                game.getFranchise()
+                game.getTitle(),
+                game.getDescription(),
+                game.getReleaseDate(),
+                game.getRating(),
+                game.getGenre(),
+                game.getPlatform(),
+                game.getCoverUrl(),
+                game.getBackdropUrl(),
+                game.getInWishList()
         );
     }
 }

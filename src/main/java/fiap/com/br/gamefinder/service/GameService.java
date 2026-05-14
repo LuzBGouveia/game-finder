@@ -27,8 +27,12 @@ public class GameService {
         );
     }
 
-    public Game findByName(String name) {
-        return gameRepository.findByname(name);
+    public List<Game> findAllByGenreId(Long id) {
+        return gameRepository.findAllByGenreId(id);
+    }
+
+    public List<Game> findAllByPlatformId(Long id) {
+        return gameRepository.findAllByPlatformId(id);
     }
 
     public Game save(GameRequest gameRequest) {
